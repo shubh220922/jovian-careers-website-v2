@@ -1,62 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Jovian Careers</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <style>
-            h1 {
-                font-size: 40px;
-                font-family: sans-serif;
-                font-weight: normal;
-                color: rgb(50, 50, 50);
-                text-align: center;
-            }
-
             #banner {
-                width: 100%;
                 height: 360px;
-                object-fit: cover; /*This will kind of like zoom into the picture if you're stretching it a lot across the webpage so it looks good*/
-            }
-
-            h2 {
-                font-family: sans-serif;
-                font-size: 32px;
-                color: rgb(100, 100, 100);
-                text-align: center;
-                font-weight: normal;
-            }
-
-            .bodytext {
-                font-family: sans-serif;
-                color: rgb(80, 80, 80);
-            }
-
-            #container {
-                max-width: 720px;
-                margin: 0 auto 0 auto; /* (up left down right) Applies equal margin to the left and right side*/
+                width: 100%;
+                object-fit: cover;
+                margin-bottom: 16px;
             }
         </style>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     </head>
     <body>
-            <div id="container">
-            <h1>Jovian Careers</h1>
-            <img id="banner" src="/static/banner.jpg" alt="HTML Dog"/>
-            <h2>About Jovian</h2>
-            <p class="bodytext">
-                These are short, famous texts in English from classic sources like the Bible or Shakespeare. Some texts have word definitions and explanations to help you. Some of these texts are written in an old style of English. Try to understand them, because the English that we speak today is based on what our great, great, great, great grandparents spoke before! Of course, not all these texts were originally written in English. The Bible, for example, is a translation. But they are all well known in English today, and many of them express beautiful thoughts.
+            {% include 'nav.html' %}
+            <img class="img-fluid" id="banner" src="/static/banner.jpg" alt="HTML Dog"/>
+            <div class="container">
+            <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
+                <div class="row" style="margin-bottom: 16px">
+                    <div class="col-md-6">
+            <p class="lead">
+                These are short, famous texts in English from classic sources like the Bible or Shakespeare. Some texts
+                have word definitions and explanations to help you. Some of these texts are written in an old style of English.
+                Try to understand them, because the English that we speak today is based on what our great, great, great,
+                great grandparents spoke before! Of course, not all these texts were originally written in English.
+                The Bible, for example, is a translation. But they are all well known in English today, and many
+                of them express beautiful thoughts.
             </p>
-            <h2>
+                    </div>
+                    <div class="d-none d-md-block col-md-6">
+                        <img src="/static/people.jpg" style="height: 320px; border-radius: 4px;" alt="people"/>
+                    </div>
+                </div>
+            <h2 class="text-center mt-2 mb-4">
                 Open positions
             </h2>
-            <p class="bodytext">
-                TODO - Show the jobs here
+            <p>
+                {% for job in jobs %}
+                   {% include 'jobitem.html' %}
+                {% endfor %}
             </p>
-            <div style="text-align: center;">
-                <button>
+            <div class="text-center">
+                <a href="mailto:shubh22.srivastava@gmail.com?subject=Question%20about%20job%20opening&body=Name%3A%20*Insert%20name%20here*%0D%0A%0D%0AQuestion%3A%20*Insert%20question%20here*"class="btn btn-primary btn-lg">
                     Contact Us
-                </button>
-                <p>Copyright 2023, Jovian</p>
+                </a>
             </div>
             </div>
+    {% include 'footer.html' %}
     </body>
 </html>
