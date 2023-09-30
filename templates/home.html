@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jovian Careers</title>
+        <style>
+            h1 {
+                font-size: 40px;
+                font-family: sans-serif;
+                font-weight: normal;
+                color: rgb(50, 50, 50);
+                text-align: center;
+            }
+
+            #banner {
+                width: 100%;
+                height: 360px;
+                object-fit: cover; /*This will kind of like zoom into the picture if you're stretching it a lot across the webpage so it looks good*/
+            }
+
+            h2 {
+                font-family: sans-serif;
+                font-size: 32px;
+                color: rgb(100, 100, 100);
+                text-align: center;
+                font-weight: normal;
+            }
+
+            .bodytext {
+                font-family: sans-serif;
+                color: rgb(80, 80, 80);
+            }
+
+            #container {
+                max-width: 720px;
+                margin: 0 auto 0 auto; /* (up left down right) Applies equal margin to the left and right side*/
+            }
+        </style>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+    <body>
+            <div id="container">
+            <h1>Jovian Careers</h1>
+            <img id="banner" src="/static/banner.jpg" alt="HTML Dog"/>
+            <h2>About Jovian</h2>
+            <p class="bodytext">
+                These are short, famous texts in English from classic sources like the Bible or Shakespeare. Some texts have word definitions and explanations to help you. Some of these texts are written in an old style of English. Try to understand them, because the English that we speak today is based on what our great, great, great, great grandparents spoke before! Of course, not all these texts were originally written in English. The Bible, for example, is a translation. But they are all well known in English today, and many of them express beautiful thoughts.
+            </p>
+            <h2>
+                Open positions
+            </h2>
+            <p class="bodytext">
+                TODO - Show the jobs here
+            </p>
+            <div style="text-align: center;">
+                <button>
+                    Contact Us
+                </button>
+                <p>Copyright 2023, Jovian</p>
+            </div>
+            </div>
+    </body>
+</html>
