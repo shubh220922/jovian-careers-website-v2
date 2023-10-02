@@ -47,3 +47,12 @@ def load_jobs_from_db():
         return result_dict
 
 
+def add_application_to_db(job_id, application):
+    with engine.connect() as conn:
+        query = text(f"INSERT INTO applications "
+                     f"(job_id, full_name, email, linkedin_url, education, work_experience, resume_url) "
+                     f"VALUES ({job_id}, '{application['full_name']}', '{application['email']}', "
+                     f"'{application['linkedin_url']}', '{application['education']}', "
+                     f"'{application['work_experience']}', '{application['resume_url']}')")
+        conn.execute(query)
+        conn.commit()
